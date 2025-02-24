@@ -597,8 +597,8 @@ abstract class MuistiActivity : AppCompatActivity() {
     /**
      * Starts a settings activity
      */
-    protected fun startSettingsActivity() {
-        val intent = Intent(this, SettingsActivity::class.java)
+    protected fun startSetupActivity() {
+        val intent = Intent(this, SetupActivity::class.java)
         this.startActivity(intent)
         finish()
     }
@@ -659,7 +659,7 @@ abstract class MuistiActivity : AppCompatActivity() {
         settingsClickCounterHandler.removeCallbacksAndMessages(null)
         buttonClickCounter += 1
         if (buttonClickCounter > 4) {
-            startSettingsActivity()
+            startSetupActivity()
         } else {
             settingsClickCounterHandler.postDelayed({
                 buttonClickCounter = 0

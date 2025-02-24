@@ -28,11 +28,11 @@ class MainActivity : MuistiActivity() {
         super.onCreate(savedInstanceState)
         VisitorSessionContainer.getLiveVisitorSession().observe(this, visitorSessionObserver)
         GlobalScope.launch {
-            val exhibitionId = DeviceSettings.getExhibitionId()
-            val deviceId = DeviceSettings.getExhibitionDeviceId()
+            val deviceId = DeviceSettings.getDeviceId()
+            val deviceKey = DeviceSettings.getDeviceKey()
 
-            if (exhibitionId == null || deviceId == null) {
-                startSettingsActivity()
+            if (deviceId == null || deviceKey == null) {
+                startSetupActivity()
             } else {
                 val idlePage = when (val pageId = muistiViewModel?.getIdlePageId()) {
                     null -> null

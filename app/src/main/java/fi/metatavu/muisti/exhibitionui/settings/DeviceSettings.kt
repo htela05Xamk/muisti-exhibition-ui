@@ -53,6 +53,42 @@ class DeviceSettings {
         }
 
         /**
+         * Returns device id if set
+         *
+         * @return device id or null if not set
+         */
+        suspend fun getDeviceKey(): String? {
+            return getSettingValue(DeviceSettingName.DEVICE_ID)
+        }
+
+        /**
+         * Sets device key
+         *
+         * @param deviceKey device authorization key
+         */
+        suspend fun setDeviceKey(deviceKey: String) {
+            setSettingValue(DeviceSettingName.DEVICE_KEY, deviceKey)
+        }
+
+        /**
+         * Gets device id
+         *
+         * @return deviceId id
+         */
+        suspend fun getDeviceId(): UUID? {
+            return getUUID(getSettingValue(DeviceSettingName.DEVICE_ID))
+        }
+
+        /**
+         * Sets device id
+         *
+         * @param deviceId id
+         */
+        suspend fun setDeviceId(deviceId: UUID) {
+            setSettingValue(DeviceSettingName.DEVICE_ID, deviceId.toString())
+        }
+
+        /**
          * Sets force video play setting
          *
          * @param value value of setting
